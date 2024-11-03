@@ -1,0 +1,22 @@
+--------------------TODO-------------------
+
+
+
+-   Levelauswahl
+-   Audio?
+-   Settings
+-   Bogen / Projektile
+-   Bewegung als dauerwert, der von Reibung, anderen Entities und den Eingaben geändert wird
+-   config datei
+
+
+
+-------------------------------------Level Data Conventions------------------------------------
+
+eine Zeile Dimenisonen: höhe breite
+eine leere Zeile
+höhe Zeilen mit je einer Reihe Boden-Daten , von Leerzeichen getrennt
+eine leere Zeile
+höhe Zeilen mit je einer Reihe Entity-Daten , von Leerzeichen getrennt
+eine leere Zeile
+höhe Zeilen mit je einer Reihe Fallen-Daten , von Leerzeichen getrennt
