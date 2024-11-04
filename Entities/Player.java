@@ -1,7 +1,5 @@
 package JumpOrRun.Entities;
 
-import static SuperMayoWorld.Utils.Constants.PlayerConstants.*;
-
 import java.awt.Rectangle;
 import java.io.ObjectInputFilter.Config;
 import java.util.ArrayList;

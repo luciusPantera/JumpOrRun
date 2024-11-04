@@ -5,12 +5,12 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 
-import SuperMayoWorld.Main.*;
+import JumpOrRun.Main.*;
 
 public class Load {
     public static BufferedImage GetImage(String src){
         BufferedImage img = null;
-        File is = new File("Resources/" + src);
+        File is = new File("JumpOrRun/Resources/" + src);
         try{
             img = ImageIO.read(is);
         }catch (IOException e){
@@ -22,7 +22,7 @@ public class Load {
     public static int[][][] getLevel(int nr) throws IOException{
         //String file = readFile("../Level/" + "level1.leveldata");
         
-        BufferedReader buffer = new BufferedReader(new FileReader("Levels/" + "level" + nr + ".leveldata"));
+        BufferedReader buffer = new BufferedReader(new FileReader("JumpOrRun/Levels/" + "level" + nr + ".leveldata"));
         String zeile1 = buffer.readLine();
         String[] dimensions = zeile1.split(" ");
         int height = Integer.valueOf(dimensions[0]);
@@ -57,7 +57,7 @@ public class Load {
     public static int[] getPlayerdata(){
         String data = "";
         try {
-            data = readFile("Utils/data.playerdata");
+            data = readFile("JumpOrRun/Utils/data.playerdata");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class Load {
     public static void saveData(int levelNr){
         String data = "Level: " + levelNr;
         try {
-            FileWriter myWriter = new FileWriter("Utils/data.playerdata");
+            FileWriter myWriter = new FileWriter("JumpOrRun/Utils/data.playerdata");
             myWriter.write(data);
             myWriter.close();
             System.out.println("Successfully saved to file.");

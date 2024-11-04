@@ -2,7 +2,7 @@ package JumpOrRun.Utils;
 
 import java.awt.Rectangle;
 
-import SuperMayoWorld.Main.Game;
+import JumpOrRun.Main.Game;
 
 public class Helpers {
     public static boolean freeSpace(int x, int y, Rectangle hitbox, int[][] level){

@@ -10,8 +10,7 @@ import javax.swing.event.*;
 import javax.imageio.*;
 
 import JumpOrRun.Inputs.*;
-import static SuperMayoWorld.Utils.Constants.PlayerConstants.*;
-import static SuperMayoWorld.Utils.Constants.Directions.*;
+import static JumpOrRun.Utils.Constants.PlayerConstants.*;
 
 import java.util.*;
 

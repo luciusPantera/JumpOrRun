@@ -22,7 +22,7 @@ public class LevelHandler {
     private Spawn spawn;
     private int waitedTicks;
     private float waitSec = 1;
-    private int levelNr = 3;
+    private int levelNr = 1;
     public int x = 0, y = 0;
     public int length, height;
     private int enemiesLeft;
