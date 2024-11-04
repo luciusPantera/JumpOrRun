@@ -52,7 +52,9 @@ public class Playing extends State{
         float playerMaxHp = player.maxHp;
         float healthPercent = playerHp / playerMaxHp;
         int healthIndex = -((int)(healthPercent * 5) -5);
-        g.drawImage(health[healthIndex], (int)(33 * Game.scale), (int)(33 * Game.scale), (int)(200 * Game.scale), (int)(64 * Game.scale), null);
+        g.setColor(Color.GRAY);
+        g.fillRect(0, 0, Game.GameWidth, (int)(96 * Game.scale));
+        g.drawImage(health[healthIndex], (int)(16 * Game.scale), (int)(16 * Game.scale), (int)(200 * Game.scale), (int)(64 * Game.scale), null);
     }
 
     public Player getPlayer(){

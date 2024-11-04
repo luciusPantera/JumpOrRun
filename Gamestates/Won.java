@@ -20,9 +20,9 @@ public class Won extends State{
         foregroung = Load.GetImage("won_foreground.png");
         buttons = new GenericButton[3];
         int x = (Game.GameWidth/2) - (Constants.GUI.Menu_Button_Width_Scaled / 2);
-        buttons[0] = new PlayButton(x, (int)((150 + (0 * 60)) * Game.scale), true, game);
-        buttons[1] = new MenuButton(x, (int)((150 + (1 * 60)) * Game.scale), true, game);
-        buttons[2] = new QuitButton(x, (int)((150 + (2 * 60)) * Game.scale), true, game);
+        buttons[0] = new PlayButton(x, (int)((246 + (0 * 60)) * Game.scale), true, game);
+        buttons[1] = new MenuButton(x, (int)((246 + (1 * 60)) * Game.scale), true, game);
+        buttons[2] = new QuitButton(x, (int)((246 + (2 * 60)) * Game.scale), true, game);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Won extends State{
         int width = (int)(background.getWidth() * Game.scale);
         int height = (int)(background.getHeight() * Game.scale);
         int x = (Game.GameWidth/2) - (width / 2);
-        int y = (int)( 30 * Game.scale);
+        int y = (int)( 126 * Game.scale);
         g.drawImage(background, x, y, width, height, null);
         for (GenericButton button : buttons) {
             button.render(g);

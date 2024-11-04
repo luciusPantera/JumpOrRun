@@ -76,9 +76,9 @@ public class Player extends Entity{
         if(offTop) Levely_temp = hitbox.y - yMiddle + topSpace;
         if(offBottom) Levely_temp = hitbox.y - yMiddle - bottomSpace;
         boolean atBottom = Levely_temp >= (int)(level.height * Constants.GAME.TILE_SIZE  * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight; 
-        boolean atTop = Levely_temp <= 0;
+        boolean atTop = Levely_temp <= -(int)(96 * Game.scale);
         if(atBottom) Levely_temp = (int)(level.height * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight;
-        if(atTop) Levely_temp = 0;
+        if(atTop) Levely_temp = -(int)(96 * Game.scale);
         level.y = Levely_temp;
     }
 

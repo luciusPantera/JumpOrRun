@@ -31,7 +31,7 @@ public class Game implements Runnable{
     private Died died;
 
     public Game(){
-        setGameSize(26, 14);
+        setGameSize(26, 17);
         playing = new Playing(this);
         menu = new GameMenu(this);
         settings = new Settings(this);
