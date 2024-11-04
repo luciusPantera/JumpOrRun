@@ -95,21 +95,21 @@ public class Player extends Entity{
             /* if(action != ATTACK){
                 attack();
             } */
-            action = ATTACK;
+            action = 6;
             if(velY < 0){
-                action = ATTACK_UP;
+                action = 8;
                 jumping = false;
             }else if(velY > 0){
-                action = ATTACK_DOWN;
+                action = 7;
             }
         }else if(jumping){
-            action = JUMPING;
+            action = 2;
         }else if(falling){
-            action = FALLING;
+            action = 3;
         }else if(moving){
-            action = RUNNING;
+            action = 1;
         }else{
-            action = IDLE;
+            action = 0;
         }
 
         if(startAction != action){
