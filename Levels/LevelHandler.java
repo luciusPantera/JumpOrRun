@@ -26,6 +26,7 @@ public class LevelHandler {
     public int x = 0, y = 0;
     public int length, height;
     private int enemiesLeft;
+    private static final int leftSpace = 200, rightSpace = 200, topSpace = 50, bottomSpace = 50;
 
     public LevelHandler(Game game){
         this.game = game;
@@ -231,5 +232,33 @@ public class LevelHandler {
     public void startLevel(){
         getLevel(levelNr);
         reset();
+    }
+
+    public void setLevelPos(int PlayerX, int PlayerY){
+        int Levelx_temp = x;
+         int xOnScreen = PlayerX - Levelx_temp;
+        int xMiddle = (int)(Game.GameWidth) / 2;
+        boolean offLeft = xOnScreen < xMiddle - leftSpace;
+        boolean offRight = xOnScreen > xMiddle + rightSpace;
+        if(offLeft) Levelx_temp = PlayerX - xMiddle + leftSpace;
+        if(offRight) Levelx_temp = PlayerX - xMiddle - rightSpace;
+        boolean atEnd = Levelx_temp >= (int)(length * Constants.GAME.TILE_SIZE  * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameWidth; 
+        boolean atStart = Levelx_temp <= 0;
+        if(atEnd) Levelx_temp = (int)(length * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameWidth;
+        if(atStart) Levelx_temp = 0;
+        x = Levelx_temp;
+        // y
+        int Levely_temp = y;
+        int yOnScreen = PlayerY - Levely_temp;
+        int yMiddle = (int)(Game.GameHeight) / 2;
+        boolean offTop = yOnScreen < yMiddle - topSpace;
+        boolean offBottom = yOnScreen > yMiddle + bottomSpace;
+        if(offTop) Levely_temp = PlayerY - yMiddle + topSpace;
+        if(offBottom) Levely_temp = PlayerY - yMiddle - bottomSpace;
+        boolean atBottom = Levely_temp >= (int)(height * Constants.GAME.TILE_SIZE  * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight; 
+        boolean atTop = Levely_temp <= -(int)(96 * Game.scale);
+        if(atBottom) Levely_temp = (int)(height * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight;
+        if(atTop) Levely_temp = -(int)(96 * Game.scale);
+        y = Levely_temp;
     }
 }

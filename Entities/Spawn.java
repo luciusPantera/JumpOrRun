@@ -56,8 +56,7 @@ public class Spawn extends InteractionObject{
         for (Player player : players) {
             player.forceMove(posX, posY);
         }
-        level.x = 0;
-        level.y = (int)(level.height * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight;
+        level.setLevelPos(hitbox.x, hitbox.y);
     }
 
     @Override

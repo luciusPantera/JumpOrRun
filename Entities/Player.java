@@ -13,8 +13,7 @@ public class Player extends Entity{
 
     protected boolean moving = false, falling = false, attacking = false, jumping = false, jump = false, stopJump = false, left = false, right = false;
     private int speed = (int)(1 * Game.scale);
-    private static final int leftSpace = 200, rightSpace = 200, topSpace = 50, bottomSpace = 50;
-    private int xOnScreen, yOnScreen;
+    
 
     public Player(int x, int y, LevelHandler level) {
         super(new Rectangle(x * Constants.GAME.TILE_SIZE, ((y + 1) * Constants.GAME.TILE_SIZE)-28, 16, 28), new Rectangle(25, 4, 64, 40), new Rectangle(30,-10,30,30), new Rectangle(0,0,12,12), 9, 6, "player_sprites.png", 50, level);
@@ -54,32 +53,7 @@ public class Player extends Entity{
         if(velX < 0) facing = true; else if(velX > 0) facing = false;
         tryMoveX((int)velX);
 
-        // move level to fit
-        int Levelx_temp = level.x;
-        xOnScreen = hitbox.x - Levelx_temp;
-        int xMiddle = (int)(Game.GameWidth) / 2;
-        boolean offLeft = xOnScreen < xMiddle - leftSpace;
-        boolean offRight = xOnScreen > xMiddle + rightSpace;
-        if(offLeft) Levelx_temp = hitbox.x - xMiddle + leftSpace;
-        if(offRight) Levelx_temp = hitbox.x - xMiddle - rightSpace;
-        boolean atEnd = Levelx_temp >= (int)(level.length * Constants.GAME.TILE_SIZE  * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameWidth; 
-        boolean atStart = Levelx_temp <= 0;
-        if(atEnd) Levelx_temp = (int)(level.length * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameWidth;
-        if(atStart) Levelx_temp = 0;
-        level.x = Levelx_temp;
-        // y
-        int Levely_temp = level.y;
-        yOnScreen = hitbox.y - Levely_temp;
-        int yMiddle = (int)(Game.GameHeight) / 2;
-        boolean offTop = yOnScreen < yMiddle - topSpace;
-        boolean offBottom = yOnScreen > yMiddle + bottomSpace;
-        if(offTop) Levely_temp = hitbox.y - yMiddle + topSpace;
-        if(offBottom) Levely_temp = hitbox.y - yMiddle - bottomSpace;
-        boolean atBottom = Levely_temp >= (int)(level.height * Constants.GAME.TILE_SIZE  * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight; 
-        boolean atTop = Levely_temp <= -(int)(96 * Game.scale);
-        if(atBottom) Levely_temp = (int)(level.height * Constants.GAME.TILE_SIZE * JumpOrRun.Utils.Config.Game.SCALE) - Game.GameHeight;
-        if(atTop) Levely_temp = -(int)(96 * Game.scale);
-        level.y = Levely_temp;
+        level.setLevelPos(hitbox.x, hitbox.y);
     }
 
     public void setAnimation(){
